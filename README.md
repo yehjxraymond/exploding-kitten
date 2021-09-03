@@ -43,6 +43,15 @@ This exploit is a denial of service (DOS) attack that targets contracts using th
 
 The exploit destroys the code in the implementation contracts, rendering the UUPS proxy useless and it cannot be upgraded to fix the issue. This exploit does not work on Transparent Proxies as the contract upgrade code resides in the proxy, but since UUPS proxies store the upgrade code in the implementation contract, it allows the implementation contract to be upgraded and destroyed by an adversary. 
 
+## POC
+
+```
+npm i
+npm run test
+```
+
+The test is in `test/ExplodingKitten.test.ts`. It shows how a exploit can destroy a simple upgradeable ERC20 token.
+
 ## Contracts affected
 
 https://etherscan.io/find-similar-contracts?a=0x222222222291749de47895c0c0a9b17e4fca8268
